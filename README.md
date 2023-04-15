@@ -1,46 +1,87 @@
-# Getting Started with Create React App
+# react-draggable-button
+## Botão móvel para componentes react
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+react-draggable-button surgiu de uma necessidade em um projeto mobile, então resolvi transformar em um componente personalizável.
 
-In the project directory, you can run:
+## Instalação
+Usando `npm`
 
-### `yarn start`
+```
+npm install react-draggable-button
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Usando `yarn`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+yarn add react-draggable-button
+```
+## Importação
 
-### `yarn test`
+```js
+import { DraggableButton } from 'react-draggable-button';
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Exemplo de uso
 
-### `yarn build`
+```js
+function App() {
+  const containerRef = useRef<HTMLDivElement>(null)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  return (
+    <div ref={containerRef} className="container">
+      <DraggableButton
+        containerRef={containerRef} 
+        device='auto'
+        backgroundColor='#000'
+        height={50}
+        width={50}
+        borderRadius={25}
+        initialBottom={0}
+        initialRight={0}
+        borderMargin={10}
+        animationTimig={2}
+        resizeTaxOnMove={0.1}
+        zIndex={10}
+        children={<img src={Icon} alt={"alt Image"} style={{width: '50%', height: '50%'}}/>}
+        onClick={(() => console.log('clicked'))}
+        pressTimeToClick={0.1}
+        />
+    </div>
+  );
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](https://tc-online-invoices.s3.sa-east-1.amazonaws.com/images-templates/GIF+-+react-draggable-button+-+Feito+com+o+Clipchamp_1681589248815.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Propriedades
+- ```containerRef: RefObject<HTMLDivElement> (obrigatório)``` - Ref do container que envolverá o componente
 
-### `yarn eject`
+- ```device: "mobile" | "desktop" | "auto" (obrigatório)``` - Tipo de dispositivo onde será utilizado. Quando for "auto" uma função que detecta o tipo de dispositivo será acionada.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- ```width: number (obrigatório)``` - width do componente.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ```height: number (obrigatório)``` - height do componente.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- ```borderRadius: number (obrigatório)``` - border-radius do componente.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- ```backgroundColor: string (obrigatório)``` - background-color do componente.
 
-## Learn More
+- ```initialBottom: number (obrigatório)``` - bottom inicial do componente.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- ```initialRight: number (obrigatório)``` - right inicial do componente.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ```children: ReactNode (opcional)``` - Elemento html que ficará dentro do componente.
+
+- ```borderMargin: number (obrigatório)``` - Margem em que o componente ficará das bordas da tela.
+
+- ```animationTimig: number (opcional)``` - Tempo da aninamação pulse ao mover o componente. Por padrão é 0.5.
+
+- ```resizeTaxOnMove: number (opcional)``` - Quanto em porcentagem (0 - 1) o compomente irá aumentar (widht & height) ao ser movido. Por padrão é 0.1.
+
+- ```zIndex: number (opcional)``` - z-index do componente. Por padrão é 100.
+
+- ```onClick: () => void (obrigatório)``` - Função que será executada ao clicar no componente.
+
+- ```pressTimeToClick: number (opcional)``` - Tempo máximo para ser considerado clique. Por padrão é 0.4s.
+
