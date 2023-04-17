@@ -1,5 +1,5 @@
 {
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -10,7 +10,12 @@
   "engines": {
     "node": ">=10"
   },
-  "keywords": ["react", "button", "draggable-button", "react-component"],
+  "keywords": [
+    "react",
+    "button",
+    "draggable-button",
+    "react-component"
+  ],
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
