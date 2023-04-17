@@ -4,3 +4,13 @@
   position: relative;
   border: 1px solid black;
 }
+
+.box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: hotpink;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+}

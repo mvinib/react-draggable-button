@@ -175,7 +175,7 @@ export function DraggableButton({
       box.style.width = `${width + (width * (resizeTaxOnMove))}px`
       box.style.height = `${height + (height * (resizeTaxOnMove))}px`
       box.style.borderRadius = `${borderRadius + (borderRadius * (resizeTaxOnMove))}px`
-      box.style.animation = `pulse ${animationTimig}s infinite`
+      box.style.animation = `pulse ${animationTimig}s ease infinite`
 
       let nextX: number = 0
       let nextY: number = 0
