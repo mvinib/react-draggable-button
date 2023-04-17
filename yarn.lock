@@ -13515,6 +13515,19 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-draggable-button@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-draggable-button/-/react-draggable-button-0.1.2.tgz#20d6f88e75302b0dfc720351edcc82117897f82b"
+  integrity sha512-ei57vx75P5WvJv+6IfXWRNtHCmzxufxNU1OGDdeOli1TnOr5XB7L3IaToaj4xYMLHXf/O0URyEbT4Kmqwx4V/A==
+  dependencies:
+    autoprefixer "^10.4.14"
+    cssnano "^6.0.0"
+    hex-to-rgba "^2.0.1"
+    postcss "^8.4.21"
+    react-dev-utils "10.0.0"
+    react-scripts "^3.4.1"
+    rollup-plugin-postcss "^4.0.2"
+
 react-error-overlay@^6.0.11, react-error-overlay@^6.0.4, react-error-overlay@^6.0.7:
   version "6.0.11"
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.11.tgz"
@@ -15510,19 +15523,6 @@ test-exclude@^6.0.0:
     "@istanbuljs/schema" "^0.1.2"
     glob "^7.1.4"
     minimatch "^3.0.4"
-
-teste-draggable-button@^0.1.22:
-  version "0.1.22"
-  resolved "https://registry.yarnpkg.com/teste-draggable-button/-/teste-draggable-button-0.1.22.tgz#532f3c0f8d3276846c8125d340b48e9ac79ac1ea"
-  integrity sha512-YItTcrRZvsMM3kwEXDWjAGvvGItgsyi5UZmLrF7FZQ0w2vxM2ggG+Vy38EKs018gYGjK+X1GLIC8r8OvgKroDg==
-  dependencies:
-    autoprefixer "^10.4.14"
-    cssnano "^6.0.0"
-    hex-to-rgba "^2.0.1"
-    postcss "^8.4.21"
-    react-dev-utils "10.0.0"
-    react-scripts "^3.4.1"
-    rollup-plugin-postcss "^4.0.2"
 
 text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"

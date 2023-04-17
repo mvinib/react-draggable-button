@@ -1,8 +1,7 @@
 import React, { useRef } from 'react';
 import './App.css';
 import Icon from './assets/logo192.png'
-// import { DraggableButton } from './components';
-import { DraggableButton } from 'teste-draggable-button'
+import { DraggableButton } from 'react-draggable-button'
 
 function App() {
   const containerRef = useRef<HTMLDivElement>(null)
