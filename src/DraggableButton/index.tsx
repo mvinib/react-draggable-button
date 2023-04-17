@@ -1,6 +1,7 @@
 import React, { ReactNode, RefObject, useEffect, useRef } from 'react'
 import './styles.css'
 import hexToRgba from 'hex-to-rgba';
+import { Keyframes } from '../keyframe';
 
 export function DraggableButton({
   containerRef,
@@ -74,8 +75,6 @@ export function DraggableButton({
     lastY: 0
   })
 
-  const bgColor = { "--bg": hexToRgba(backgroundColor, 0.5) } as React.CSSProperties
-
   useEffect(() => {
     if (!boxRef.current || !containerRef.current) return
     const box = boxRef.current
@@ -88,6 +87,11 @@ export function DraggableButton({
     box.style.right = `${initialRight}px`
     box.style.bottom = `${initialBottom}px`
     box.style.zIndex = `${zIndex}`
+    box.style.display = 'flex'
+    box.style.alignItems = 'center'
+    box.style.justifyContent = 'center'
+    box.style.position = 'absolute'
+
     if (borderMargin < 0) {
       borderMargin = 0
     }
@@ -199,10 +203,10 @@ export function DraggableButton({
       screenHeight.current = container.scrollHeight
     }
 
-    box.addEventListener(eventNames.current.start, onTouchStart)
-    box.addEventListener(eventNames.current.end, onTouchEnd)
-    container.addEventListener(eventNames.current.move, onTouchMove)
-    container.addEventListener(eventNames.current.cancel, onTouchEnd);
+    box.addEventListener(eventNames.current.start, onTouchStart, { passive: true })
+    box.addEventListener(eventNames.current.end, onTouchEnd, { passive: true })
+    container.addEventListener(eventNames.current.move, onTouchMove, { passive: true })
+    container.addEventListener(eventNames.current.cancel, onTouchEnd, { passive: true });
 
     const cleanup = () => {
       box.removeEventListener(eventNames.current.start, onTouchStart)
@@ -233,8 +237,17 @@ export function DraggableButton({
   }
 
   return (
-    <div ref={boxRef} className="box" style={bgColor}>
-      {children && children}
-    </div>
+    <>
+      <div ref={boxRef}>
+        {children && children}
+
+      </div>
+      <Keyframes
+        name='pulse'
+        _0={{ transform: 'scale(0.95)', boxShadow: `0 0 0 0 ${hexToRgba(backgroundColor, 0.5)}`}}
+        _70={{ transform: 'scale(1)', boxShadow: `0 0 0 10px ${hexToRgba(backgroundColor, 0.5)}`}}
+        _100={{ transform: 'scale(0.95)', boxShadow: `0 0 0 0 ${hexToRgba(backgroundColor, 0.5)}`}}
+      />
+    </>
   )
 }
